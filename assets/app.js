@@ -976,9 +976,9 @@ ${html}`;
   });
 
   /* ---- Démarrage ---- */
-  $search.addEventListener("input", function() { closeDrawer(); searchQuery = $search.value; renderNav(); });
+  $search.addEventListener("input", function() { searchQuery = $search.value; renderNav(); });
   if ($homeMood) $homeMood.addEventListener("click", function(){ closeDrawer(); showMood(); });
-  $sortSelect.addEventListener("change", function() { closeDrawer(); renderNav(); });
+  $sortSelect.addEventListener("change", function() { renderNav(); });
   document.addEventListener("keydown", function(e) { if (e.key === "Escape") closeDrawer(); });
   try { if (localStorage.getItem("sg_dark") === "1") { darkMode = true; $darkToggle.textContent = "☀️ Clair"; } } catch (e) {}
   $darkToggle.addEventListener("click", function() {
