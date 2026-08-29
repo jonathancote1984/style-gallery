@@ -1,0 +1,2 @@
+# Forcer LF partout (source) pour des diffs propres et un rendu identique sur Windows/macOS/Linux
+* text=auto eol=lf

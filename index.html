@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UI/UX Style Gallery — Neumorphism, Glassmorphism & plus</title>
+  <meta name="description" content="Galerie interactive de styles UI/UX : neumorphism, glassmorphism, claymorphism, brutalism, memphis, material design, minimalisme… avec palettes de couleurs et exemples complets." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css?v=19" />
+  <link rel="stylesheet" href="assets/preview.css?v=19" />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand" id="brandHome" title="Revenir à l'accueil">
+        <div class="brand-logo">▦</div>
+        <div>
+          <h1>UI/UX Style Gallery</h1>
+          <small>Explore &amp; compare les styles</small>
+        </div>
+      </div>
+      <input id="search" class="search-input" type="text" placeholder="🔍 Rechercher un style…" />
+      <select id="sortSelect" class="search-select"><option value="display">Trier : Par défaut</option><option value="name">Trier : Nom A–Z</option><option value="favs">Trier : Favoris d'abord</option></select>
+      <div id="nav"></div>
+      <div class="sidebar-foot">
+        <b>Style Gallery</b> · app statique · aucune dépendance.
+        <br/>Ouvrez simplement <code>index.html</code> dans un navigateur.
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="wrap">
+        <section id="homeView" class="home-view" hidden>
+          <div class="home-hero">
+            <span class="home-badge">76 styles · 316 palettes</span>
+            <h2>Explorez 31 directions UI/UX</h2>
+            <p>Neumorphism, glassmorphism, brutalism… Comparez, personnalisez, testez la police et le contraste de chaque style, puis copiez le code.</p>
+            <div class="home-actions"><button class="chip" id="homeMood">🗺️ Vue d'ensemble</button><button class="chip" id="homeStart">→ Explorer les styles</button></div>
+          </div>
+          <div class="home-stats">
+            <div class="home-stat"><b id="homeStyles">0</b><span>styles</span></div>
+            <div class="home-stat"><b id="homePalettes">0</b><span>palettes</span></div>
+            <div class="home-stat"><b id="homeComponents">0</b><span>composants</span></div>
+          </div>
+          <div class="home-cats" id="homeCats"><span class="plabel">Commencer par une famille</span></div>
+          <p class="home-tip">💡 Choisissez un style dans la barre latérale pour ouvrir son aperçu complet (palettes, police, contraste, fiche, recette).</p>
+        </section>
+
+        <section id="moodboardView" class="home-view" hidden>
+          <div class="home-hero"><span class="home-badge">49 styles</span><h2>🗺️ Vue d'ensemble</h2><p>Parcourez les 76 directions artistiques d'un coup d'œil. Cliquez sur une tuile pour l'ouvrir.</p></div>
+          <div class="mood-grid" id="moodGrid"></div>
+        </section>
+
+        <section id="styleView">
+        <div class="topbar">
+          <div>
+            <h2 id="styleTitle">…</h2>
+            <p id="styleDesc">…</p>
+          </div>
+          <div class="actions">
+            <button class="chip" id="prevStyle">← Précédent</button>
+            <button class="chip" id="nextStyle">Suivant →</button>
+          </div>
+        </div>
+
+        <div class="palette-bar" id="paletteBar">
+          <span class="plabel">Palette</span>
+        </div>
+
+        <div class="palette-bar" id="fontBar">
+          <span class="plabel">Police</span>
+        </div>
+
+        <div class="compare-bar">
+          <span class="compare-label" id="compareLabel" style="display:none">Mode comparaison</span>
+          <button class="chip" id="compareToggle">⇄ Comparer un style</button>
+          <button class="chip" id="customToggle">🎨 Palette perso</button>
+          <button class="chip" id="darkToggle">🌙 Sombre</button>
+          <button class="chip compare-exit" id="compareExit" style="display:none">✕ Quitter le mode comparaison</button>
+          <button class="chip" id="compareAdd">＋ Ajouter un panneau</button>
+        </div>
+
+        <div class="custom-panel" id="customPanel" hidden></div>
+
+        <div id="compareWrap" class="compare-wrap" hidden></div>
+
+        <div class="stage stage-main">
+          <div class="style-out" id="stage"></div>
+        </div>
+
+        <div class="codeblock" id="codeBlock">
+          <div class="cb-head">
+            <span class="cb-label">Code (HTML + CSS)</span>
+            <button class="copy-btn" id="copyBtn">Copier le code</button>
+          </div>
+          <pre id="codePre"></pre>
+        </div>
+
+        <div class="note" id="noteBox"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/styles-data.js?v=19"></script>
+  <script src="assets/app.js?v=19"></script>
+</body>
+</html>
