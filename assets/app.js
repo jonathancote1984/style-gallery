@@ -129,7 +129,8 @@
     "Verdana": { css: "'Verdana', sans-serif" },
     "Trebuchet MS": { css: "'Trebuchet MS', sans-serif" },
     "Manrope": { css: "'Manrope', sans-serif", google: "Manrope:wght@400;700" },
-    "Gill Sans": { css: "'Gill Sans', 'Trebuchet MS', sans-serif" }
+    "Gill Sans": { css: "'Gill Sans', 'Trebuchet MS', sans-serif" },
+    "Playfair Display": { css: "'Playfair Display', serif", google: "Playfair+Display:wght@400;700" }
   };
   const FONT_OPTIONS = {
     neu: ["Nunito", "Quicksand", "Inter"], glass: ["Inter", "Plus Jakarta Sans", "Rubik"],
@@ -921,7 +922,7 @@ ${html}`;
     $nav.querySelectorAll(".nav-item").forEach((b) => {
       b.classList.toggle("active", +b.dataset.i === current);
     });
-    if (compareOn) { compareState.A = { sel: current, pal: currentPalette, font: currentFont }; renderComparePanel("A"); }
+    if (compareOn) { renderComparePanels(); }
     document.title = `UI/UX Style Gallery — ${s.name}`;
   }
 

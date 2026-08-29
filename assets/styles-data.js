@@ -1,5 +1,5 @@
 /* ============================================================
-   Données des 15 styles — métadonnées + palettes de couleurs.
+   Données des 73 styles — métadonnées + palettes de couleurs.
    Chaque palette définit les variables CSS du style (--sg-* + spécifiques).
    ============================================================ */
 
@@ -632,7 +632,6 @@ window.DSH_STYLES = [
     { name: "Minuit clair", vars: { "--sg-bg": "#f6f7f9", "--sg-surface": "#ffffff", "--sg-text": "#1f2530", "--sg-muted": "#7a8595", "--sg-primary": "#1f2530", "--sg-primary-2": "#3a4452", "--sg-acc": "#2f6f9f", "--sg-radius": "16px" } },
     { name: "Rose poudré", vars: { "--sg-bg": "#fdf6f8", "--sg-surface": "#fff", "--sg-text": "#3a242c", "--sg-muted": "#a08890", "--sg-primary": "#2a1a20", "--sg-primary-2": "#4a3038", "--sg-acc": "#c0577a", "--sg-radius": "16px" } }
   ] },
-,
   { id: "comic", p: "comic", name: "Comic Book", category: "Bold", tagline: "Bandes dessinées : halftone, contours, POP !", desc: "Le style Comic Book s'inspire des BD : fond à points (halftone), contours noirs épais, couleurs vives et ombres dures. POW ! BAM !", flavor: "Comic", note: "**Quand l'utiliser ?** Sites fun, jeux, marques kids, contenus « super-héros ». Les points + contours donnent le ton.", tips: ["Motif halftone en fond","Contours 2-3px noirs","Couleurs vives","Ombres dures"], palettes: [
     { name: "Pop", vars: { "--sg-bg": "#fff3b0", "--sg-surface": "#fffdf2", "--sg-text": "#1a1a1a", "--sg-muted": "#555555", "--sg-primary": "#ff5e5e", "--sg-primary-2": "#ff3838", "--sg-acc": "#2ec4e6", "--sg-radius": "8px" } },
     { name: "Pow", vars: { "--sg-bg": "#b0e6ff", "--sg-surface": "#ffffff", "--sg-text": "#1a2a3a", "--sg-muted": "#55718a", "--sg-primary": "#2f8fe0", "--sg-primary-2": "#1f6fb8", "--sg-acc": "#ffd23f", "--sg-radius": "8px" } },
@@ -681,7 +680,6 @@ window.DSH_STYLES = [
     { name: "Toxic", vars: { "--sg-bg": "#e8f0e0", "--sg-surface": "#ffffff", "--sg-text": "#1a2a12", "--sg-muted": "#5f8a4a", "--sg-primary": "#4a8a2a", "--sg-primary-2": "#356f1f", "--sg-acc": "#2a2a2a", "--sg-radius": "0px" } },
     { name: "Mauve", vars: { "--sg-bg": "#eee4ef", "--sg-surface": "#ffffff", "--sg-text": "#2a1a2a", "--sg-muted": "#8a747f", "--sg-primary": "#a02f7a", "--sg-primary-2": "#82235f", "--sg-acc": "#1a1a1a", "--sg-radius": "0px" } }
   ] },
-,
   { id: "vhs", p: "vhs", name: "Retro VHS", category: "Modern", tagline: "Cassette vidéo : lignes de tracking, PLAY", desc: "Le style VHS évoque une vieille cassette : bandes de tracking, code temporel, monospace et lueur. Nostalgie média rétro.", flavor: "VHS", note: "**Quand l'utiliser ?** Nostalgie, médias, contenus « found footage », culture pop. Les lignes + monospace donnent le ton.", tips: ["Lignes de tracking","▶ PLAY","Monospace","Lueur rétro"], palettes: [
     { name: "Cassette", vars: { "--sg-bg": "#0d0b12", "--sg-surface": "#17131f", "--sg-text": "#e6e0ff", "--sg-muted": "#93879f", "--sg-primary": "#b06ff0", "--sg-primary-2": "#924fd6", "--sg-acc": "#2fd0e0", "--sg-radius": "8px" } },
     { name: "Betamax", vars: { "--sg-bg": "#0a0f12", "--sg-surface": "#141a1f", "--sg-text": "#d5f0ff", "--sg-muted": "#7fa0b5", "--sg-primary": "#2fa8d0", "--sg-primary-2": "#1f87ab", "--sg-acc": "#e07a5f", "--sg-radius": "8px" } },
@@ -730,7 +728,6 @@ window.DSH_STYLES = [
     { name: "Épicerie", vars: { "--sg-bg": "#eef2ea", "--sg-surface": "#f8fbf4", "--sg-text": "#2f3a26", "--sg-muted": "#7f8a70", "--sg-primary": "#4a8a3a", "--sg-primary-2": "#366f2a", "--sg-acc": "#c0392b", "--sg-radius": "4px" } },
     { name: "Papier", vars: { "--sg-bg": "#f2ede2", "--sg-surface": "#fbf7ee", "--sg-text": "#4a4238", "--sg-muted": "#9a9080", "--sg-primary": "#c96a3a", "--sg-primary-2": "#a8552a", "--sg-acc": "#4a8a6a", "--sg-radius": "4px" } }
   ] },
-,
   { id: "kintsugi", p: "kintsugi", name: "Kintsugi / Wabi-sabi", category: "Soft", tagline: "Céramique réparée : or, fissures, sérénité", desc: "Le style Kintsugi s'inspire de l'art japonais de réparer la céramique à l'or : surfaces mates, fissures dorées, beauté de l'imparfait.", flavor: "Kintsugi", note: "**Quand l'utiliser ?** Bien-être, art, artisanat, produits premium. Les fissures dorées donnent la poésie.", tips: ["Surface céramique mate","Fissures dorées","Tons neutres","Beauté imparfaite"], palettes: [
     { name: "Céramique", vars: { "--sg-bg": "#efe9e0", "--sg-surface": "#f8f4ec", "--sg-surface-2": "#efe9db", "--sg-text": "#3a332c", "--sg-muted": "#8a8172", "--sg-primary": "#c9a24b", "--sg-primary-2": "#a58a3f", "--sg-acc": "#6a8a6a", "--sg-radius": "18px", "--kint-line": "rgba(201,162,75,.4)" } },
     { name: "Voile", vars: { "--sg-bg": "#edeae4", "--sg-surface": "#f7f5f0", "--sg-surface-2": "#eeece4", "--sg-text": "#37352f", "--sg-muted": "#8a877e", "--sg-primary": "#c9b28a", "--sg-primary-2": "#a89a78", "--sg-acc": "#9a8fb5", "--sg-radius": "18px", "--kint-line": "rgba(201,178,138,.4)" } },

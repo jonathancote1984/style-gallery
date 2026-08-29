@@ -1,6 +1,6 @@
 # 🎨 UI/UX Style Gallery
 
-Galerie interactive qui présente **76 styles UI/UX** (neumorphism, glassmorphism, claymorphism, brutalism, terminal, pixel, néon, bento, HUD, aquarelle, Bauhaus, candy, gothique, rétro…), chacun avec un **exemple complet de ~35 composants** + une **maquette de page** (nav, hero, pricing, footer), **4-5 palettes de couleurs** commutables (316 au total), un **testeur de police**, une **palette personnalisable**, une **fiche d'information détaillée** (usage, points forts, points de vigilance, typographie, accessibilité), un **aide-mémoire « recette »** et le **code copiable**.
+Galerie interactive qui présente **73 styles UI/UX** (neumorphism, glassmorphism, claymorphism, brutalism, terminal, pixel, néon, bento, HUD, aquarelle, Bauhaus, candy, gothique, rétro…), chacun avec un **exemple complet de ~60 composants** + une **maquette de page** (nav, hero, pricing, footer), **4-5 palettes de couleurs** commutables (316 au total), un **testeur de police**, une **palette personnalisable**, une **fiche d'information détaillée** (usage, points forts, points de vigilance, typographie, accessibilité), un **aide-mémoire « recette »** et le **code copiable**.
 
 **Aucune dépendance** : c'est du HTML/CSS/JS pur. Ouvrez simplement `index.html` dans un navigateur.
 
@@ -132,8 +132,8 @@ style-gallery/
 ├── index.html              # Page principale
 └── assets/
     ├── styles.css          # Coquille de l'app (layout, sidebar, boutons)
-    ├── preview.css         # CSS des 15 styles (mise en scène + composants thémés)
-    ├── styles-data.js      # Les 15 styles : métadonnées + palettes de couleurs
+    ├── preview.css         # CSS des 73 styles (mise en scène + composants thémés)
+    ├── styles-data.js      # Les 73 styles : métadonnées + palettes de couleurs
     └── app.js              # Logique de rendu (navigation, palettes, copie)
 ```
 
