@@ -14,7 +14,7 @@
 <body>
   <div class="app">
     <!-- Sidebar -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
       <div class="brand" id="brandHome" title="Revenir à l'accueil">
         <div class="brand-logo">▦</div>
         <div>
@@ -33,6 +33,7 @@
 
     <!-- Main -->
     <main class="main">
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="sidebar">☰</button>
       <div class="wrap">
         <section id="homeView" class="home-view" hidden>
           <div class="home-hero">
@@ -104,6 +105,7 @@
         </section>
       </div>
     </main>
+    <button class="drawer-scrim" id="drawerScrim" type="button" aria-label="Fermer le menu"></button>
   </div>
 
   <script src="assets/styles-data.js?v=19"></script>

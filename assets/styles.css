@@ -17,7 +17,7 @@
 }
 
 *{box-sizing:border-box}
-html,body{margin:0;padding:0}
+html,body{margin:0;padding:0;overflow-x:hidden}
 body{
   font-family:"Inter","Segoe UI",system-ui,-apple-system,sans-serif;
   background:radial-gradient(1200px 600px at 15% -10%, #1b2036 0%, var(--shell-bg) 55%);
@@ -68,9 +68,10 @@ body{
 
 .sidebar-foot{margin-top:auto;font-size:11.5px;color:var(--shell-muted);padding:10px 6px 0;border-top:1px solid var(--shell-border)}
 .sidebar-foot b{color:var(--shell-text)}
+.menu-toggle,.drawer-scrim{display:none}
 
 /* ---- Main ---- */
-.main{padding:28px 34px 60px;min-width:0}
+.main{padding:28px 34px 60px;min-width:0;width:100%}
 .wrap{max-width:1200px;margin:0 auto}
 .topbar{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:22px}
 .topbar h2{font-size:30px;margin:0;letter-spacing:-.02em}
@@ -140,9 +141,15 @@ pre{
 /* ---- Responsive ---- */
 @media(max-width:940px){
   .app{grid-template-columns:1fr}
-  .sidebar{position:relative;height:auto;border-right:none;border-bottom:1px solid var(--shell-border)}
+  .sidebar{position:fixed;z-index:20;inset:0 auto 0 0;width:min(320px,calc(100vw - 40px));height:100vh;border-right:1px solid var(--shell-border);border-bottom:none;transform:translateX(-105%);transition:transform .22s ease;box-shadow:18px 0 50px rgba(0,0,0,.35)}
+  body.drawer-open{overflow:hidden}
+  body.drawer-open .sidebar{transform:translateX(0)}
+  .drawer-scrim{position:fixed;z-index:15;inset:0;width:100%;height:100%;padding:0;border:0;background:rgba(4,6,12,.68);cursor:pointer}
+  body.drawer-open .drawer-scrim{display:block}
+  .menu-toggle{position:relative;z-index:10;display:inline-grid;place-items:center;width:44px;height:44px;margin:0 0 12px;padding:0;border:1px solid var(--shell-border);border-radius:12px;background:var(--shell-panel-2);color:var(--shell-text);font:inherit;font-size:21px;cursor:pointer}
   .main{padding:20px 16px 50px}
   .topbar h2{font-size:24px}
+  .nav-item,.nav-cat-head{min-height:44px}
 }
 
 /* ---- Fiche d'information (dossier) ---- */
@@ -166,6 +173,26 @@ pre{
 .compare-head > span{font-weight:700;color:var(--shell-text);font-size:14px}
 .compare-select{background:var(--shell-panel-2);border:1px solid var(--shell-border);color:var(--shell-text);font:inherit;font-size:13px;padding:6px 10px;border-radius:8px;cursor:pointer}
 @media(max-width:940px){.compare-wrap{grid-template-columns:1fr}} 
+
+@media(max-width:480px){
+  .main{padding:12px 10px 36px}
+  .topbar{gap:12px;margin-bottom:16px}
+  .topbar h2{font-size:20px}
+  .topbar p{font-size:13px}
+  .topbar .actions,.compare-bar{gap:8px}
+  .chip{min-height:44px;padding:9px 11px}
+  .palette-bar{gap:7px;margin-bottom:14px}
+  .palette{min-height:44px;padding:8px 10px}
+  .stage{padding:14px;border-radius:12px}
+  .style-out{padding:16px;border-radius:14px}
+  .home-hero{padding:28px 4px 8px}
+  .home-hero h2{font-size:26px}
+  .home-hero p{font-size:14px}
+  .mood-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .mood-tile .mood-body{padding:9px}
+  .mood-tile .mood-name{font-size:12px}
+  .note-grid{grid-template-columns:1fr}
+}
 
 /* ---- Palette personnalisée ---- */
 .custom-panel{background:var(--shell-panel);border:1px solid var(--shell-border);border-radius:12px;padding:16px 18px;margin-bottom:18px}
@@ -244,6 +271,7 @@ body.compare-active .compare-wrap { display:grid }
 /* ---- Tableau comparatif (mode comparaison) ---- */
 .cmp-title{font-size:15px;font-weight:800;color:var(--shell-text);margin-bottom:12px}
 .compare-table{width:100%;border-collapse:collapse;font-size:13px;border:1px solid var(--shell-border);border-radius:12px;overflow:hidden}
+.compare-table-scroll{max-width:100%;overflow-x:auto}
 .compare-table th,.compare-table td{padding:10px 12px;border:1px solid var(--shell-border);vertical-align:top;text-align:left;line-height:1.6}
 .compare-table thead th{background:var(--shell-panel-2);color:var(--shell-accent-2);font-weight:700}
 .compare-table tbody th{background:var(--shell-panel);color:var(--shell-muted);font-weight:700;width:190px}

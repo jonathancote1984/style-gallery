@@ -121,7 +121,7 @@ npx serve .          # ou : python -m http.server 8080
 - **La recette** : aide-mémoire des règles CSS clés de chaque style pour le réimplémenter.
 - **Bouton « Copier le code »** : copie les variables CSS de la palette + le HTML des composants.
 - Navigation par flèches **← / →** du clavier et boutons Précédent/Suivant.
-- Design réactif (sidebar qui passe au-dessus sur mobile).
+- Design réactif (sidebar en drawer coulissant avec scrim et verrouillage du défilement sur mobile).
 
 ---
 

@@ -28,6 +28,18 @@
   const $moodGrid = document.getElementById("moodGrid");
   const $homeMood = document.getElementById("homeMood");
   const $sortSelect = document.getElementById("sortSelect");
+  const $menuToggle = document.getElementById("menuToggle");
+  const $drawerScrim = document.getElementById("drawerScrim");
+  function setDrawer(open) {
+    document.body.classList.toggle("drawer-open", open);
+    if ($menuToggle) {
+      $menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      $menuToggle.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+    }
+  }
+  function closeDrawer() { setDrawer(false); }
+  if ($menuToggle) $menuToggle.addEventListener("click", function() { setDrawer(!document.body.classList.contains("drawer-open")); });
+  if ($drawerScrim) $drawerScrim.addEventListener("click", closeDrawer);
   function showHome(on) {
     if (on) {
       compareOn = false; document.body.classList.remove("compare-active"); if (typeof $compareWrap !== "undefined" && $compareWrap) $compareWrap.hidden = true; if (typeof setCompareUI === "function") setCompareUI(false);
@@ -59,7 +71,7 @@
     });
     $moodGrid.innerHTML = html;
     $moodGrid.querySelectorAll(".mood-tile").forEach(function(t) {
-      t.addEventListener("click", function() { current = +t.dataset.i; currentPalette = 0; showHome(false); render(); });
+      t.addEventListener("click", function() { closeDrawer(); current = +t.dataset.i; currentPalette = 0; showHome(false); render(); });
     });
   }
   function populateHome() {
@@ -76,12 +88,12 @@
     $homeCats.querySelectorAll(".home-cat").forEach(function(b) {
       b.addEventListener("click", function() {
         const idx = STYLES.findIndex(function(s){ return s.category === b.dataset.cat; });
-        if (idx >= 0) { current = idx; currentPalette = 0; showHome(false); render(); }
+        if (idx >= 0) { closeDrawer(); current = idx; currentPalette = 0; showHome(false); render(); }
       });
     });
   }
-  $brand.addEventListener("click", function(){ showHome(true); });
-  $homeStart.addEventListener("click", function(){ current = 0; currentPalette = 0; showHome(false); render(); });
+  $brand.addEventListener("click", function(){ closeDrawer(); showHome(true); });
+  $homeStart.addEventListener("click", function(){ closeDrawer(); current = 0; currentPalette = 0; showHome(false); render(); });
 
 
   let current = 0;
@@ -407,6 +419,7 @@
     let html = '<div class="cmp-title">📊 Comparatif des ' + styles.length + ' styles</div><table class="compare-table"><thead><tr><th>Critère</th>' + styles.map(function(st, i){ return '<th>' + (i + 1) + ' · ' + st.name + '</th>'; }).join('') + '</tr></thead><tbody>';
     rows.forEach(function(row){ html += '<tr><th>' + row[0] + '</th>' + row[1].map(function(c){ return '<td>' + c + '</td>'; }).join('') + '</tr>'; });
     html += '</tbody></table>';
+    html = '<div class="compare-table-scroll">' + html + '</div>';
     $noteBox.innerHTML = html;
   }
   function setCompareUI(on) {
@@ -753,7 +766,7 @@ function components(p, flavor) {
       }
       if (sort === "name") arr.sort(function(a,b){ return a.name.localeCompare(b.name); });
       if (sort === "favs") arr.sort(function(a,b){ return (isFav(b.id)?1:0) - (isFav(a.id)?1:0); });
-      if (arr.length === 0) { html += '<div class="nav-empty">Aucun résultat</div>'; $nav.innerHTML = html; $nav.querySelectorAll(".nav-item").forEach(function(b){ b.addEventListener("click", function(){ if (b.dataset.home){ showHome(true); return; } if (b.dataset.mood){ showMood(); return; } current = +b.dataset.i; currentPalette = 0; showHome(false); if (compareOn) exitCompare(); else render(); }); }); return; }
+      if (arr.length === 0) { html += '<div class="nav-empty">Aucun résultat</div>'; $nav.innerHTML = html; $nav.querySelectorAll(".nav-item").forEach(function(b){ b.addEventListener("click", function(){ closeDrawer(); if (b.dataset.home){ showHome(true); return; } if (b.dataset.mood){ showMood(); return; } current = +b.dataset.i; currentPalette = 0; showHome(false); if (compareOn) exitCompare(); else render(); }); }); return; }
       let n = 0;
       arr.forEach(function(s) {
         n++;
@@ -798,6 +811,7 @@ function components(p, flavor) {
     $nav.querySelectorAll(".nav-star").forEach(function(st) { st.addEventListener("click", function(e) { e.stopPropagation(); toggleFav(st.dataset.fav); }); });
     $nav.querySelectorAll(".nav-item").forEach(function(b) {
       b.addEventListener("click", function() {
+        closeDrawer();
         if (b.dataset.home) { showHome(true); return; }
         if (b.dataset.mood) { showMood(); return; }
         current = +b.dataset.i; currentPalette = 0; showHome(false); if (compareOn) exitCompare(); else render();
@@ -928,6 +942,7 @@ ${html}`;
 
   /* ---- Navigation ---- */
   function go(delta) {
+    closeDrawer();
     current = (current + delta + STYLES.length) % STYLES.length;
     currentPalette = 0;
     if (compareOn) exitCompare(); else render();
@@ -961,9 +976,10 @@ ${html}`;
   });
 
   /* ---- Démarrage ---- */
-  $search.addEventListener("input", function() { searchQuery = $search.value; renderNav(); });
-  if ($homeMood) $homeMood.addEventListener("click", showMood);
-  $sortSelect.addEventListener("change", function() { renderNav(); });
+  $search.addEventListener("input", function() { closeDrawer(); searchQuery = $search.value; renderNav(); });
+  if ($homeMood) $homeMood.addEventListener("click", function(){ closeDrawer(); showMood(); });
+  $sortSelect.addEventListener("change", function() { closeDrawer(); renderNav(); });
+  document.addEventListener("keydown", function(e) { if (e.key === "Escape") closeDrawer(); });
   try { if (localStorage.getItem("sg_dark") === "1") { darkMode = true; $darkToggle.textContent = "☀️ Clair"; } } catch (e) {}
   $darkToggle.addEventListener("click", function() {
     darkMode = !darkMode;
