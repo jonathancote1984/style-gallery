@@ -139,7 +139,7 @@ pre{
 ::-webkit-scrollbar-track{background:transparent}
 
 /* ---- Responsive ---- */
-@media(max-width:940px){
+@media(max-width:768px){
   .app{grid-template-columns:1fr}
   .sidebar{position:fixed;z-index:20;inset:0 auto 0 0;width:min(320px,calc(100vw - 40px));height:100vh;border-right:1px solid var(--shell-border);border-bottom:none;transform:translateX(-105%);transition:transform .22s ease;box-shadow:18px 0 50px rgba(0,0,0,.35)}
   body.drawer-open{overflow:hidden}
@@ -172,7 +172,7 @@ pre{
 .compare-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
 .compare-head > span{font-weight:700;color:var(--shell-text);font-size:14px}
 .compare-select{background:var(--shell-panel-2);border:1px solid var(--shell-border);color:var(--shell-text);font:inherit;font-size:13px;padding:6px 10px;border-radius:8px;cursor:pointer}
-@media(max-width:940px){.compare-wrap{grid-template-columns:1fr}} 
+@media(max-width:768px){.compare-wrap{grid-template-columns:1fr}} 
 
 @media(max-width:480px){
   .main{padding:12px 10px 36px}
@@ -299,4 +299,4 @@ body.compare-active .compare-wrap { display:grid }
 .cmp-name{font-weight:700;color:var(--shell-text);font-size:14px}
 .cmp-del{width:24px;height:24px;border-radius:8px;background:var(--shell-panel-2);border:1px solid var(--shell-border);color:var(--shell-muted);cursor:pointer;font-size:14px;line-height:1;flex:none}
 .cmp-del:hover{color:#ff5c5c;border-color:#ff5c5c}
-@media(max-width:940px){.compare-wrap{grid-template-columns:1fr}}
+@media(max-width:768px){.compare-wrap{grid-template-columns:1fr}}
